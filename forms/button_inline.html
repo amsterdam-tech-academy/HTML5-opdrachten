@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Custom radio button styling</title>
+  
+  <style>  
+    input[type="radio"]{
+      display: none;
+    }
+    input[type="radio"] + label span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: transparent;
+      vertical-align: middle;
+      border: 2px solid #f56;
+      border-radius: 50%;
+      padding: 2px;
+      margin:0 5px;
+    }
+    input[type="radio"]:checked + label span {
+      width: 10px;
+      height: 10px;
+      background: #f56;
+      background-clip: content-box;
+    }  
+  </style>
+  
+</head>
+<body>
+    <h3>Form met radio buttons inline, method POST</h3>
+        <form action="./form1.php" method="post">
+            Waardering in woorden<br>
+            <input id="goed" type="radio" name="waardering_woorden" value="goed">
+            <label for="goed"><span></span>goed</label>        
+            <input id="redelijk" type="radio" name="waardering_woorden" value="redelijk">
+            <label for="redelijk"><span></span>redelijk</label>
+            <input id="matig" type="radio" name="waardering_woorden" value="matig">
+            <label for="matig"><span></span>matig</label>            
+            <input id="slecht" type="radio" name="waardering_woorden" value="slecht">
+            <label for="slecht"><span></span>slecht</label>      
+            <br><br>
+            Waardering in cijfers<br> 
+            <input id="1" type="radio" name="waardering_cijfers" value="1">
+            <label for="1"><span></span>1</label>
+            <input id="2" type="radio" name="waardering_cijfers" value="2">
+            <label for="2"><span></span>2</label>
+            <input id="3" type="radio" name="waardering_cijfers" value="3">
+            <label for="3"><span></span>3</label>
+            <input id="4" type="radio" name="waardering_cijfers" value="4">
+            <label for="4"><span></span>4</label>
+            <input id="5" type="radio" name="waardering_cijfers" value="5">
+            <label for="5"><span></span>5</label>
+            <input id="6" type="radio" name="waardering_cijfers" value="6">
+            <label for="6"><span></span>6</label>
+            <input id="7" type="radio" name="waardering_cijfers" value="7">
+            <label for="7"><span></span>7</label>
+            <br><br>
+            <input type="submit" value="Verzend Form met radio buttons">
+            <input type="reset" value="Reset">
+        </form>
+
+   
+
+  
+</body>
+</html>

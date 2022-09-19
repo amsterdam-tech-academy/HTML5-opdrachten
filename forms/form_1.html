@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Forms 1</title>
+        <style>
+            h3 {
+                background-color: lightgray;
+            }
+            input:hover{background-color: aqua;}
+            form {
+                /* Center the form on the page */
+                margin: 0 auto;
+                width: 400px;
+                /* Form outline */
+                padding: 1em;
+                border: 1px solid #ccc;
+                border-radius: 1em;
+            }
+            label {
+                /* Uniform size & alignment */
+                display: inline-block;
+                width: 90px;
+                text-align: right;
+            }
+        </style>
+    </head>
+    <body>
+    <!-- https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form -->
+        <h3>Form met radio buttons, method POST</h3>
+        <form action="./form1.php" method="post">
+            <input type="radio" id="html" name="favorite_taal" value="HTML">
+            <label for="html">HTML</label><br>
+            <input type="radio" id="css" name="favorite_taal" value="CSS" checked="checked">
+            <label for="css">CSS</label><br>
+            <input type="radio" id="javascript" name="favorite_taal" value="JavaScript">
+            <label for="javascript">JavaScript</label><br><br>
+            <input type="submit" value="Verzend Form met radio buttons">
+            <input type="reset" value="Reset">
+        </form>
+        <h3>Form met label, method GET</h3>
+        <form action="./form1.php" method="get">
+            <label for="voornaam">Voornaam:</label><br>
+            <input type="text" id="voornaam" name="voornaam" placeholder="voornaam"><br><br>
+            <label for="voornaam">Achternaam:</label><br>
+            <input type="text" id="achternaam" name="achternaam" placeholder="achternaam"><br><br>
+            <input type="submit" value="Verzend Form met label ">
+            <input type="reset" value="Reset">
+        </form>
+        <h3>Form met selector, meerdere keuzes mogelijk, lijst toont 3 opties</h3>
+        <form action="./form1.php" method="get">
+            <label for="talen">Kies een taal:</label>
+            <select id="talen" name="talen" size="3" multiple>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="js">JS</option>
+              <option value="c_sharp">C#</option>
+              <option value="c_plus">C++</option>
+              <option value="nodejs">nodeJS</option>
+              <option value="python">Python</option>
+            </select> 
+            <input type="submit" value="Verzend Form met selector">
+            <input type="reset" value="Reset">
+        </form>
+        <h3>Form met Datalist</h3>
+        <form action="./form1.php" method="get">
+            <fieldset>
+                <label for="fname">Voornaam:</label><br>
+                <input type="text" id="fname" name="fname" value="uw voornaam"><br><br>
+                <label for="fname">Achternaam:</label><br>
+                <input type="text" id="lname" name="lname" value="uw achternaam"><br><br>
+                <label for="woonplaats_keuze">woonplaats</label>
+                <input list="woonplaats" id="woonplaats_keuze" name="woonplaats_keuze">
+                <datalist id="woonplaats">
+                    <option value="Amsterdam">Amsterdam
+                    <option value="Rotterdam">Rotterdam
+                    <option value="Utrecht">Utrecht
+                    <option value="Zwolle">Zwolle
+                </datalist><br><br>                
+                <input type="submit" value="Verzend Form met Datalist ">
+                <input type="reset" value="Reset">
+            </fieldset>
+        </form>
+        <h3>Form met Slider</h3>
+        <!-- https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types -->
+        <form  action="./form1.php" method="get">
+            om de waarde van de slider realtime in de html weer te geven is JS nodig
+            <label for="price">Choose a maximum house price: </label>            
+                <input
+                    type="range"
+                    name="price"
+                    id="price"
+                    min="50000"
+                    max="500000"
+                    step="100"
+                    value="50000" />
+                <output class="price-output" for="price"></output><br><br>
+                <input type="submit" value="Verzend Form met Slider ">
+                <input type="reset" value="Reset">
+        </form>
+        <script>
+            const price = document.querySelector("#price");
+            const output = document.querySelector(".price-output");
+            output.textContent = price.value;
+            price.addEventListener("input", () => {
+            output.textContent = price.value;
+            });
+        </script>
+         <h3>Form met Kalender mm-dd-yy format</h3>
+        <form  action="./form1.php" method="get">
+            <label for="myDate">Op welke zaterdag kunnen wij afspreken?</label>
+            <input
+            type="date"
+            name="myDate"
+            min="2023-06-03"
+            max="2023-08-31"
+            step="7"
+            id="myDate" /><br><br>
+            <input type="submit" value="Verzend Form met Kalender ">
+            <input type="reset" value="Reset">
+        </form>
+        <h3>Form met e-mail adres en required </h3>
+        <form  action="./form1.php" method="get">
+            client-side validation
+            <label for="email">E-mail adres</label>
+            <input type="email" id="email" name="email" required />
+            <input type="submit" value="Verzend e-mail ">
+            <input type="reset" value="Reset">
+
+        </form>
+    </body>
+</html>
